@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+  },
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

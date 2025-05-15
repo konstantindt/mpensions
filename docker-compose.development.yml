@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  postgres_development:
+    container_name: development_database
+    ports:
+      - "5432:5432"
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: development
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgre_development_password
+      POSTGRES_DB: development
+    secrets:
+      - postgre_development_password
+    volumes:
+      - ./docker_development_db:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U development -d development",
+        ]
+secrets:
+  postgre_development_password:
+    file: postgre_development_password.txt
