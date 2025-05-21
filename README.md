@@ -6,7 +6,7 @@
 $ node --version
 v22.14.0
 $ npm install
-$ head /dev/urandom | tr -dc A-Za-z0-9 | head -c24 > postgre_development_password.txt
+$ head /dev/urandom | LC_ALL=C tr -dc A-Za-z0-9 | head -c24 > postgre_development_password.txt
 $ docker-compose -f docker-compose.development.yml up
 $ APP_ENV=development npx mikro-orm-esm schema:fresh --run --seed
 $ npm run test
